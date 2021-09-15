@@ -26,5 +26,5 @@ Let's take a look what is a template looks like
 <p align="center">
 <img src="/image/template_img.JPG" height="40%" width="40%"> 
 </p>  
-It looks almost the same as the report which we are going to generate, right? Only some part with some strange symbol such as ```<<<XXXOOPP>>>```.
+It looks almost the same as the report which we are going to generate, right? Only some part with some strange symbol such as ```<<<    >>>```.
 
