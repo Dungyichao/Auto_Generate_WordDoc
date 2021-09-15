@@ -185,6 +185,9 @@ private static void TimerCallback(Object o)
 }
 
 ```
+Until this stage, we will have SQL records in hand and we will start generate report and Excel chart in next section
+
+### 4.2 Generate Word Document and Excel Chart
 
 
 
