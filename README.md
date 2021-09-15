@@ -43,3 +43,12 @@ Create a C# Console Application Solution in Visual Studio 2017, we name our solu
 <p align="center">
 <img src="/image/solution_explorer_img.JPG" height="20%" width="20%"> 
 </p>  
+
+Our code will do the following: 
+1. Check if Remote SQL Database is alife on the LAN (Local Area Network).
+2. Connect to SQL database, do some quering, return dataset.
+3. Create Word Document using template which we've created. Draw Excel chart according to the dataset from SQL
+4. Convert .docx file to .pdf file
+5. Attach pdf file in email and email it to Exchange Server.
+
+### 4.1 SQL
