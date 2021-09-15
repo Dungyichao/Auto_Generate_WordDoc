@@ -133,7 +133,7 @@ internal string select_std = @"SELECT STDEV(A.TagValue) as 'std', AVG(A.TagValue
                                         SELECT TOP 288 [TagName]
                                               ,[TagValue]
                                               ,[TagTime]
-                                          FROM [DCS].[dbo].[DataSL910]
+                                          FROM [SQL_Database].[dbo].[DataSL910]
                                           where 
                                           1=1
                                           AND TagName like 'AMA021-2%'
@@ -148,7 +148,7 @@ internal string select_records = @"SELECT TOP 40 [TagName]
                                             , SUBSTRING([TagTime], 1, 4) + '-' + SUBSTRING([TagTime], 5, 2) + '-' + SUBSTRING([TagTime], 7, 2) + ' ' 
                                             + SUBSTRING([TagTime], 9, 2) + ':' + SUBSTRING([TagTime], 11, 2) + ':'+ SUBSTRING([TagTime], 13, 2) as 'TagDate'
                                             , SUBSTRING([TagTime], 9, 2) + ':' + SUBSTRING([TagTime], 11, 2) + ':'+ SUBSTRING([TagTime], 13, 2) as 'TagTimeHour'
-                                            FROM [DCS].[dbo].[DataSL910]
+                                            FROM [SQL_Database].[dbo].[DataSL910]
                                             where 1=1
                                             AND TagName like 'AMA021-2%'
                                             ORDER BY TagTime Desc";                                     
