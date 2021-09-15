@@ -37,3 +37,6 @@ It looks almost the same as the report which we are going to generate, right? On
 3. This step is crucial, we will put some special mark in this document which our program will recognize so that we can put some dynamic content at the place we marked. At ```Insert``` tab, select ```Quick Parts```, select ```Field```, select ```MergeField``` in the Field names. You can then name it whatever you like in the Field name.
 4. You can then add some permenant picture in the content.
 5. Reserve a location for our dynamic Excel chart. Choose a location, click on ```Insert``` tab, select ```Bookmark```, put a name you like, click ```Add```.
+
+# 4. Create C# Project
+
