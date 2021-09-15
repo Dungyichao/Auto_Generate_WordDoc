@@ -125,7 +125,7 @@ public DataSet Query_database(string conn_str, string query_str)
             return ds;
 }        
 ```
-The following code will show you how to call the function above
+The following code will show you the connecting string required to be put into the function above
 ```c# 
 internal string connection_database = "Data Source = 172.16.246.78; Initial Catalog = SQL_Database; Persist Security Info=True;User ID = sa; Password = some_pwd; Connection Timeout=1";
 
@@ -162,7 +162,7 @@ static double current_val = 0.0;
         
 static void Main(string[] args)
 {
-            Timer _timer = new Timer(TimerCallback, null, 0, 300 * 1000);
+            Timer _timer = new Timer(TimerCallback, null, 0, 300 * 1000); //300 means 300 seconds --> 5 min
             Console.ReadKey();          
 }
 
