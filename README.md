@@ -41,5 +41,5 @@ It looks almost the same as the report which we are going to generate, right? On
 # 4. Create C# Project
 Create a C# Console Application Solution in Visual Studio 2017, we name our solution ```motor_alarm```. The IDE will generate some files for you including ```Program.cs``` which we are going to put most of our main code in this file. We then add ```New Item``` C# class with name ```SQL_str.cs``` where we are going to put some SQL connecting and query string. This will make our solution more organize and clean. 
 <p align="center">
-<img src="/image/solution_explorer_img.JPG" height="40%" width="40%"> 
+<img src="/image/solution_explorer_img.JPG" height="20%" width="20%"> 
 </p>  
