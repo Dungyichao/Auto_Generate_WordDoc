@@ -4,6 +4,6 @@ This tutorial will show you how to use C# to generate word document or PDF file 
 # 1. What is the Goal <br />
 Let's take a look on what kind of document (.docx or .pdf) we are going to generate using C# Console Application.<br />
 <p align="center">
-<img src="/image/report_img.JPG" height="80%" width="80%"> 
+<img src="/image/report_img.JPG" height="40%" width="40%"> 
 </p>  
 <br />
