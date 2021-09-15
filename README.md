@@ -127,7 +127,7 @@ public DataSet Query_database(string conn_str, string query_str)
 ```
 The following code will show you how to call the function above
 ```c# 
-internal string connection_ntsb = "Data Source = 172.16.246.78; Initial Catalog = SQL_Database; Persist Security Info=True;User ID = sa; Password = some_pwd; Connection Timeout=1";
+internal string connection_database = "Data Source = 172.16.246.78; Initial Catalog = SQL_Database; Persist Security Info=True;User ID = sa; Password = some_pwd; Connection Timeout=1";
 
 internal string select_std = @"SELECT STDEV(A.TagValue) as 'std', AVG(A.TagValue) as 'avg' FROM(
                                         SELECT TOP 288 [TagName]
@@ -141,9 +141,50 @@ internal string select_std = @"SELECT STDEV(A.TagValue) as 'std', AVG(A.TagValue
                                           AND TagTime < replace(convert(varchar, DATEADD(MINUTE,-5,GETDATE()),111),'/','') + replace(convert(varchar, DATEADD(MINUTE,-5,GETDATE()),108),':','')
                                           order by TagTime desc
                                      ) A";
+                                     
+internal string select_records = @"SELECT TOP 40 [TagName]
+                                            ,[TagValue]
+                                            ,[TagTime]	  
+                                            , SUBSTRING([TagTime], 1, 4) + '-' + SUBSTRING([TagTime], 5, 2) + '-' + SUBSTRING([TagTime], 7, 2) + ' ' 
+                                            + SUBSTRING([TagTime], 9, 2) + ':' + SUBSTRING([TagTime], 11, 2) + ':'+ SUBSTRING([TagTime], 13, 2) as 'TagDate'
+                                            , SUBSTRING([TagTime], 9, 2) + ':' + SUBSTRING([TagTime], 11, 2) + ':'+ SUBSTRING([TagTime], 13, 2) as 'TagTimeHour'
+                                            FROM [DCS].[dbo].[DataSL910]
+                                            where 1=1
+                                            AND TagName like 'AMA021-2%'
+                                            ORDER BY TagTime Desc";                                     
+```
+The following code will be inside ```Program.cs``` under ```class Program```. Which will call SQL connect and query function every 5 min
+```c++
+static SQL_str sql_str = new SQL_str();
+static double current_std = 0.0;
+static double current_avg = 0.0;
+static double current_val = 0.0;
+        
+static void Main(string[] args)
+{
+            Timer _timer = new Timer(TimerCallback, null, 0, 300 * 1000);
+            Console.ReadKey();          
+}
+
+private static void TimerCallback(Object o)
+{
+            Query_database_STD(sql_str.connection_database, sql_str.select_std);
+            CreateDocument_template(Query_database_Record(sql_str.connection_sl910, sql_str.select_records));  // We will talk about this later
+            Console.WriteLine("VAL: " + current_val + "  STD: " + current_std.ToString() + "  AVG: " + current_avg.ToString());
+            ConvertDocument_PDF(docx_filename, pdf_filename); // We will talk about this later
+            if (current_val - current_avg > 3.0 * current_std)
+            {               
+                Console.WriteLine("Abnormal");               
+                Send_Mail(rec, pdf_filename);  // We will talk about this later
+            }
+            else
+            {
+                Console.WriteLine("Normal");
+            }
+            Console.WriteLine("In TimerCallback: " + DateTime.Now);
+}
 
 ```
-
 
 
 
