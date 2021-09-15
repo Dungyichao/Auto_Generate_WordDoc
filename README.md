@@ -12,7 +12,7 @@ Apperntly, there is title, some contents, some pictures, and some charts in the 
 # 2. The Idea in behind <br />
 We will use C# program to use Microsoft Office 2010 Word and Excel to generate report for us, so you will need Office 2010 installed in your PC. 
 <p align="center">
-<img src="/image/idea_process.JPG" height="60%" width="60%"> 
+<img src="/image/idea_process.JPG" height="90%" width="90%"> 
 </p>  
 <br />
 
