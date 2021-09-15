@@ -54,7 +54,7 @@ Our code will do the following:
 4. Attach pdf file in email and email it to Exchange Server.
 
 ### 4.1 SQL
-This section will talk about everthing you need to know when connect to SQL database
+This section will talk about everthing you need to know when connect to SQL database. The following code will all be in ```SQL_str.cs``` under ```class SQL_str```
 #### 4.1.1 Check if SQL on the LAN
 ```c#
 using System.Net;
@@ -87,3 +87,63 @@ public bool PingHost(string nameOrAddress)
 }
 //......
 ```
+#### 4.1.2 Connect to SQL and Do Query
+The following is just a function.
+```c#
+using System.Data.SqlClient;
+using System.Data;
+//......The function will be in the class
+public DataSet Query_database(string conn_str, string query_str)
+{
+            DataSet ds = new DataSet();
+            if (ds.Tables.Count > 0)
+            {
+                ds.Tables[0].Columns.Clear();
+                ds.Tables[0].Clear();
+                ds.Reset();  //I forgot to put this and cause the "Object reference not set to an instance of an object"
+                //ds.Tables[0].Rows.Clear();
+            }
+            //ds.Tables[0].Rows.Clear();
+            using (SqlConnection Myconn2 = new SqlConnection(conn_str))
+            using (SqlCommand Mycomm2 = new SqlCommand(query_str, Myconn2))
+            {
+                try
+                {
+                    Myconn2.Open();
+                    SqlDataAdapter MyAd2 = new SqlDataAdapter();
+                    MyAd2.SelectCommand = Mycomm2;
+                    //DataTable dTable2 = new DataTable();
+                    //MyAd2.Fill(dTable2);
+                    MyAd2.Fill(ds);
+                    Myconn2.Close();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            return ds;
+}        
+```
+The following code will show you how to call the function above
+```c# 
+internal string connection_ntsb = "Data Source = 172.16.246.78; Initial Catalog = SQL_Database; Persist Security Info=True;User ID = sa; Password = some_pwd; Connection Timeout=1";
+
+internal string select_std = @"SELECT STDEV(A.TagValue) as 'std', AVG(A.TagValue) as 'avg' FROM(
+                                        SELECT TOP 288 [TagName]
+                                              ,[TagValue]
+                                              ,[TagTime]
+                                          FROM [DCS].[dbo].[DataSL910]
+                                          where 
+                                          1=1
+                                          AND TagName like 'AMA021-2%'
+                                          AND TagValue >= '10'
+                                          AND TagTime < replace(convert(varchar, DATEADD(MINUTE,-5,GETDATE()),111),'/','') + replace(convert(varchar, DATEADD(MINUTE,-5,GETDATE()),108),':','')
+                                          order by TagTime desc
+                                     ) A";
+
+```
+
+
+
+
