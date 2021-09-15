@@ -6,7 +6,6 @@ Let's take a look on what kind of document (.docx or .pdf) we are going to gener
 <p align="center">
 <img src="/image/report_img.JPG" height="40%" width="40%"> 
 </p>  
-<br />
 Apperntly, there is title, some contents, some pictures, and some charts in the report. That is what we are going to achieve using program.
 
 # 2. The Idea in behind <br />
@@ -15,6 +14,17 @@ We will use C# program to use Microsoft Office 2010 Word and Excel to generate r
 <img src="/image/idea_process.JPG" height="90%" width="90%"> 
 </p>  
 <br />
+You will need the following:
+* Visual Studio 2017
+* Office 2010 Word, Excel
+* SQL database (optional)
+* Exchange Server Account (optional)
 
+# 3. Prepare Word Template
+This is very crucial step, because this will save your life. You are not required to prepare one template, but just using pure code to create a Word document. However, you will end up finding few resources online teaching you how to use program to place your content at the location you wish or may be achieve the effect you wanted. Using template will be more reasonable.
+Let's take a look what is a template looks like
+<p align="center">
+<img src="/image/template_img.JPG" height="40%" width="40%"> 
+</p>  
 
 
