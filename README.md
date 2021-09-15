@@ -6,7 +6,7 @@ Let's take a look on what kind of document (.docx or .pdf) we are going to gener
 <p align="center">
 <img src="/image/report_img.JPG" height="40%" width="40%"> 
 </p>  
-Apperntly, there is title, some contents, some pictures, and some charts in the report. That is what we are going to achieve using program.
+Apparently, there is title, some contents, some pictures, and some charts in the report. That is what we are going to achieve using program.
 
 # 2. The Idea in behind <br />
 We will use C# program to use Microsoft Office 2010 Word and Excel to generate report for us, so you will need Office 2010 installed in your PC. 
@@ -31,3 +31,9 @@ Let's take a look what is a template looks like
 </p>  
 It looks almost the same as the report which we are going to generate, right? Only some part with some strange symbol such as ```<<    >>```.
 
+### 3.1 Steps to Create Template
+1. Open a new Word document in Office 2010.
+2. Put some content like you usually do in Word, remember that, at this step, all the content will remain the same without any change.
+3. This step is crucial, we will put some special mark in this document which our program will recognize so that we can put some dynamic content at the place we marked. At ```Insert``` tab, select ```Quick Parts```, select ```Field```, select ```MergeField``` in the Field names. You can then name it whatever you like in the Field name.
+4. You can then add some permenant picture in the content.
+5. Reserve a location for our dynamic Excel chart. Choose a location, click on ```Insert``` tab, select ```Bookmark```, put a name you like, click ```Add```.
