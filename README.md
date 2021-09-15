@@ -48,10 +48,42 @@ Create a C# Console Application Solution in Visual Studio 2017, we name our solu
 </p>  
 
 Our code will do the following: 
-1. Check if Remote SQL Database is alife on the LAN (Local Area Network).
-2. Connect to SQL database, do some quering, return dataset.
-3. Create Word Document using template which we've created. Draw Excel chart according to the dataset from SQL
-4. Convert .docx file to .pdf file
-5. Attach pdf file in email and email it to Exchange Server.
+1. Check if Remote SQL Database is alive on the LAN (Local Area Network). If good, Connect to SQL database, do some quering, return dataset.
+2. Create Word Document using template which we've created. Draw Excel chart according to the dataset from SQL
+3. Convert .docx file to .pdf file
+4. Attach pdf file in email and email it to Exchange Server.
 
 ### 4.1 SQL
+This section will talk about everthing you need to know when connect to SQL database
+#### 4.1.1 Check if SQL on the LAN
+```c#
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Diagnostics;
+
+//...... The function will be in the class
+public bool PingHost(string nameOrAddress)
+{
+            bool pingable = false;
+            Ping pinger = null;
+            try
+            {
+                pinger = new Ping();
+                PingReply reply = pinger.Send(nameOrAddress);
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch (PingException)
+            {
+                // Discard PingExceptions and return false;
+            }
+            finally
+            {
+                if (pinger != null)
+                {
+                    pinger.Dispose();
+                }
+            }
+            return pingable;
+}
+//......
+```
