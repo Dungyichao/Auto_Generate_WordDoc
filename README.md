@@ -21,8 +21,8 @@ You will need the following:
 * Exchange Server Account (optional)
 
 # 3. Prepare Word Template
-Reference 1: https://vivekcek.wordpress.com/tag/interop-word-template/   (Create Word Template)
-Reference 2: https://stackoverflow.com/questions/32105775/how-to-add-an-image-at-a-specific-location-in-msword-using-c  (Place inlineshape at specific location)
+Reference 1: https://vivekcek.wordpress.com/tag/interop-word-template/   (Create Word Template)  <br />
+Reference 2: https://stackoverflow.com/questions/32105775/how-to-add-an-image-at-a-specific-location-in-msword-using-c  (Place inlineshape at specific location)  <br />
 This is very crucial step, because this will save your life. You are not required to prepare one template, but just using pure code to create a Word document. However, you will end up finding few resources online teaching you how to use program to place your content at the location you wish or may be achieve the effect you wanted. Using template will be more reasonable.
 Let's take a look what is a template looks like
 <p align="center">
