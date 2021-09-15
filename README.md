@@ -38,7 +38,7 @@ It looks almost the same as the report which we are going to generate, right? On
 4. You can then add some permenant picture in the content.
 5. Reserve a location for our dynamic Excel chart. Choose a location, click on ```Insert``` tab, select ```Bookmark```, put a name you like, click ```Add```.
 <p align="center">
-<img src="/image/template_step.gif" height="60%" width="60%"> 
+<img src="/image/template_step.gif" height="90%" width="90%"> 
 </p> 
 
 # 4. Create C# Project
