@@ -16,11 +16,11 @@ We will use C# program to use Microsoft Office 2010 Word and Excel to generate r
 <img src="/image/idea_process.JPG" height="90%" width="90%"> 
 </p>  
 <br />
-You will need the following:
-* Visual Studio 2017
-* Office 2010 Word, Excel
-* SQL database (optional)
-* Exchange Server Account (optional)
+You will need the following: <br />
+**  Visual Studio 2017 <br />
+**  Office 2010 Word, Excel <br />
+**  SQL database (optional) <br />
+**  Exchange Server Account (optional) <br />
 
 # 3. Prepare Word Template
 Reference 1: https://vivekcek.wordpress.com/tag/interop-word-template/   (Create Word Template)  <br />
