@@ -17,10 +17,10 @@ We will use C# program to use Microsoft Office 2010 Word and Excel to generate r
 </p>  
 <br />
 You will need the following: <br />
-**  Visual Studio 2017 <br />
-**  Office 2010 Word, Excel <br />
-**  SQL database (optional) <br />
-**  Exchange Server Account (optional) <br />
+ *  Visual Studio 2017 <br />
+ *  Office 2010 Word, Excel <br />
+ *  SQL database (optional) <br />
+ *  Exchange Server Account (optional) <br />
 
 # 3. Prepare Word Template
 Reference 1: https://vivekcek.wordpress.com/tag/interop-word-template/   (Create Word Template)  <br />
