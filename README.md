@@ -3,6 +3,15 @@ This tutorial will show you how to use C# to generate word document or PDF file 
 
 I spend so much time on researching this topic online, but only to find some fragment of information which is not easy for beginner to understand. There is no any detail tutorial on related topic which teach you to do such complete document. I believe a basic document would include some image, dynamic charts, some text content. Fortunately, my tutorial includes all of them. I hope this tutorial can save much of your time on the tedious work.  
 
+1. [What is the Goal](https://github.com/Dungyichao/Auto_Generate_WordDoc#1-what-is-the-goal-)
+2. [The Idea in behind](https://github.com/Dungyichao/Auto_Generate_WordDoc#2-the-idea-in-behind-)
+3. [Prepare Word Template](https://github.com/Dungyichao/Auto_Generate_WordDoc#3-prepare-word-template)
+    * 3.1 [Steps to Create Template](https://github.com/Dungyichao/Auto_Generate_WordDoc#31-steps-to-create-template)
+4. [Create C# Project](https://github.com/Dungyichao/Auto_Generate_WordDoc#4-create-c-project)
+    * 4.1 [SQL](https://github.com/Dungyichao/Auto_Generate_WordDoc#41-sql)
+    * 4.2 [Generate Word Document and Excel Chart](https://github.com/Dungyichao/Auto_Generate_WordDoc#42-generate-word-document-and-excel-chart)
+    * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)
+
 # 1. What is the Goal <br />
 Let's take a look on what kind of document (.docx or .pdf) we are going to generate using C# Console Application.<br />
 <p align="center">
