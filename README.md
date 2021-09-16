@@ -1,6 +1,8 @@
 # Auto Generate Word Document with Excel Chart and Email Report
 This tutorial will show you how to use C# to generate word document or PDF file with some Excel charts in it, and email this report to who is concerned. The motivation of this tutorial is because I don't want to use some third party library which cost or maybe free but with watermark on your report. 
 
+I spend so much time on researching this topic online, but only to find some fragment of information which is not easy for beginner to understand. There is no any detail tutorial on related topic which teach you to do such complete document. I hope this tutorial can save much of your time on the tedious work.
+
 # 1. What is the Goal <br />
 Let's take a look on what kind of document (.docx or .pdf) we are going to generate using C# Console Application.<br />
 <p align="center">
