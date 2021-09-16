@@ -49,6 +49,11 @@ Create a C# Console Application Solution in Visual Studio 2017, we name our solu
 <img src="/image/solution_explorer_img.JPG" height="20%" width="20%"> 
 </p>  
 
+You also need to add reference to this project
+<p align="center">
+<img src="/image/vs2017_ref.JPG" height="50%" width="50%"> 
+</p> 
+
 Our code will do the following: 
 1. Check if Remote SQL Database is alive on the LAN (Local Area Network). If good, Connect to SQL database, do some quering, return dataset.
 2. Create Word Document using template which we've created. Draw Excel chart according to the dataset from SQL. Optional step is converting .docx file to .pdf file
@@ -419,6 +424,8 @@ Reference 2: https://social.msdn.microsoft.com/Forums/en-US/877d981c-3dba-4724-8
 ### 4.3 Email Out the Report
 If you have any access to Microsoft Exchange Server, you can use the following code to email your report to those who you concern. This step is totally optional.
 ```C#
+using System.Net.Mail;
+
 // attachment is the string of the path of the report. This function is called in section # 4.1.2
 public static void Send_Mail(string[] recipients, string attachment)
 {
