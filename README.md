@@ -424,7 +424,7 @@ public static void Send_Mail(string[] recipients, string attachment)
             var client = new SmtpClient();
 
             //SMTP client configuration
-            client.Host = "nalcexs04.fuhq.home.usa";//Mail Server
+            client.Host = "ngltexs94.domain.home.usa";//Mail Server
             client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential("MyAccountName", "123#myPassWord", "OUR_DOMAIN_NAME");//username, passowrd, domain
             client.Timeout = 300000;
