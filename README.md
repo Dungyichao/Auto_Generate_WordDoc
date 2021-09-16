@@ -49,7 +49,7 @@ Create a C# Console Application Solution in Visual Studio 2017, we name our solu
 <img src="/image/solution_explorer_img.JPG" height="20%" width="20%"> 
 </p>  
 
-You also need to add reference to this project
+You also need to add reference ```Microsoft.Office.Interop.Excel``` and ```Microsoft.Office.Interop.Word``` to this project. We use Version 12.0.0.0.
 <p align="center">
 <img src="/image/vs2017_ref.JPG" height="50%" width="50%"> 
 </p> 
