@@ -414,3 +414,54 @@ private static void ConvertDocument_PDF(string file_name_docx, string file_name_
 Reference 1: https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.word.documentclass.exportasfixedformat?view=word-pia
 Reference 2: https://social.msdn.microsoft.com/Forums/en-US/877d981c-3dba-4724-881d-749225821757/save-word-document-as-pdf?forum=oxmlsdk
 
+### 4.3 Email Out the Report
+If you have any access to Microsoft Exchange Server, you can use the following code to email your report to those who you concern. This step is totally optional.
+```C#
+// attachment is the string of the path of the report. This function is called in section # 4.1.2
+public static void Send_Mail(string[] recipients, string attachment)
+{
+            //Generate SMTP client object with credentials
+            var client = new SmtpClient();
+
+            //SMTP client configuration
+            client.Host = "nalcexs04.fuhq.home.usa";//Mail Server
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("MyAccountName", "123#myPassWord", "OUR_DOMAIN_NAME");//username, passowrd, domain
+            client.Timeout = 300000;
+
+            //MailMessage message = new MailMessage();
+            //Need to use using so that message will not hold the resource of attachment file
+            using (var message = new MailMessage())
+            {
+                //Generate Mail Message
+
+                message.From = new MailAddress("NoReply@nglt.nptkm.com");//Mail Sender
+                message.Subject = "Motor Alarm - " + DateTime.Now.Date.ToString().Split(' ')[0];//Mail Subject
+                message.IsBodyHtml = true;
+                message.Body = "Current Amp of AMA021 Motor exceed 3 times of standard deviation from last 24 hour";//Mail body
+
+                //Add recipients
+                foreach (string recipient in recipients)
+                {
+                    message.To.Add(recipient);
+                }
+
+                //Add attachment (PDF file)
+                message.Attachments.Add(new Attachment(attachment));
+
+                //Send mail
+                try
+                {
+                    client.Send(message);
+                    Console.WriteLine("Mail Sent");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            
+}
+
+```
+
