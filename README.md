@@ -64,6 +64,12 @@ You also need to add reference ```Microsoft.Office.Interop.Excel``` and ```Micro
 <img src="/image/vs2017_ref.JPG" height="50%" width="50%"> 
 </p> 
 
+Or
+
+<p align="center">
+<img src="/image/vs2017_ref_COM.JPG" height="50%" width="50%"> 
+</p> 
+
 Our code will do the following: 
 1. Check if Remote SQL Database is alive on the LAN (Local Area Network). If good, Connect to SQL database, do some quering, return dataset.
 2. Create Word Document using template which we've created. Draw Excel chart according to the dataset from SQL. Optional step is converting .docx file to .pdf file
