@@ -462,7 +462,8 @@ public static void Send_Mail(string[] recipients, string attachment)
 
                 message.From = new MailAddress("NoReply@nglt.nptkm.com");//Mail Sender
                 message.Subject = "Motor Alarm - " + DateTime.Now.Date.ToString().Split(' ')[0];//Mail Subject
-                message.IsBodyHtml = true;
+                //message.IsBodyHtml = true;   // May cause sending to mobile carrier not complete
+                message.IsBodyHtml = false;
                 message.Body = "Current Amp of AMA021 Motor exceed 3 times of standard deviation from last 24 hour";//Mail body
 
                 //Add recipients
@@ -488,5 +489,18 @@ public static void Send_Mail(string[] recipients, string attachment)
             
 }
 
+```
+If you want to send to SMS by different carrier, you can use the following to concate phone number with the following email domain
+```c#
+public Dictionary<string, string> ISP = new Dictionary<string, string>()
+        {
+            {"AT&T", "@txt.att.net"},
+            {"Boost", "@myboostmobile.com" },
+            {"Nextel", "@messaging.nextel.com" },
+            {"Sprint", "@messaging.sprintpcs.com" },
+            {"T-Mobile", "@tmomail.net" },
+            {"Verizon", "@vtext.com" },
+            {"Virgin", "@vmobl.com" }
+        };
 ```
 
