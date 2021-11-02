@@ -441,6 +441,7 @@ Reference 2: https://social.msdn.microsoft.com/Forums/en-US/877d981c-3dba-4724-8
 If you have any access to Microsoft Exchange Server, you can use the following code to email your report to those who you concern. This step is totally optional.
 ```C#
 using System.Net.Mail;
+using System.Net;
 
 // attachment is the string of the path of the report. This function is called in section # 4.1.2
 public static void Send_Mail(string[] recipients, string attachment)
