@@ -466,6 +466,10 @@ public static void Send_Mail(string[] recipients, string attachment)
                 //message.IsBodyHtml = true;   // May cause sending to mobile carrier not complete
                 message.IsBodyHtml = false;
                 message.Body = "Current Amp of AMA021 Motor exceed 3 times of standard deviation from last 24 hour";//Mail body
+                //mail auto delete after some days
+                string expTime = DateTime.Now.AddDays(7).AddHours(4).ToString("dd MMM yyyy HH:mm");
+                message.Headers.Add("expiry-date", expTime);
+
 
                 //Add recipients
                 foreach (string recipient in recipients)
