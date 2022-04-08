@@ -451,7 +451,9 @@ private static void ConvertDocument_PDF(string file_name_docx, string file_name_
             try
             {
                 var wordApp = new Word.Application();
-                var wordDocument = wordApp.Documents.Open(file_name_docx);
+                wordApp.Visible = false;
+                object readOnly = true;
+                var wordDocument = wordApp.Documents.Open(file_name_docx, ref readOnly);
 
                 wordDocument.ExportAsFixedFormat(file_name_pdf, Word.WdExportFormat.wdExportFormatPDF);
 
@@ -470,6 +472,34 @@ private static void ConvertDocument_PDF(string file_name_docx, string file_name_
 ```
 Reference 1: https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.interop.word.documentclass.exportasfixedformat?view=word-pia </br>
 Reference 2: https://social.msdn.microsoft.com/Forums/en-US/877d981c-3dba-4724-881d-749225821757/save-word-document-as-pdf?forum=oxmlsdk
+
+
+#### 4.2.3 Printer Print out PDF file 
+```C#
+//https://social.msdn.microsoft.com/Forums/en-US/6634c718-67e9-403b-a301-704f9be545c8/print-a-word-document-from-c-using-printdialog?forum=csharplanguage
+//https://stackoverflow.com/questions/3197830/is-there-anyway-to-specify-a-printto-printer-when-spawning-a-process
+using System;
+
+string file_name_pdf = string.Empty; //file path of the .pdf file
+using (PrintDialog pd = new PrintDialog())
+{
+    if (pd.ShowDialog() == DialogResult.OK)
+    {
+         //pd.ShowDialog();
+         ProcessStartInfo info = new ProcessStartInfo(file_name_pdf);
+         info.Verb = "PrintTo";
+         info.Arguments = "\"" + pd.PrinterSettings.PrinterName + "\"";
+         info.CreateNoWindow = true;
+         info.WindowStyle = ProcessWindowStyle.Hidden;
+         Process process = Process.Start(info);
+         if (process.HasExited == false)
+         {
+             process.WaitForExit(10000);
+          }
+          process.Close();
+       }             
+}
+```
 
 ### 4.3 Email Out the Report
 If you have any access to Microsoft Exchange Server, you can use the following code to email your report to those who you concern. This step is totally optional.
