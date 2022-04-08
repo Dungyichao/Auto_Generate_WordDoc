@@ -227,6 +227,9 @@ private static void CreateDocument_template(DataSet ds)
 {
             try
             {
+                String QR_save_fileName = Path.GetTempFileName();
+                var result = new Bitmap();
+                result.Save(QR_save_fileName);
                 //Create an instance for word app  
                 Word.Application winword = new Word.Application();
 
@@ -296,6 +299,11 @@ private static void CreateDocument_template(DataSet ds)
                         {
                             myMergeField.Select();
                             winword.Selection.TypeText((3.0 * Math.Round(current_std, 4)).ToString());
+                        }
+                        else if (fieldName == "QR_CODE")
+                        {
+                           myMergeField.Select();
+                           winword.Selection.InlineShapes.AddPicture(QR_save_fileName, false, true);
                         }
 
                     }
@@ -400,6 +408,32 @@ private static void CreateDocument_template(DataSet ds)
 }
 
 ```
+
+If you try to put the Word template file into the Solution Resources, you can reference it from the Resources. It will be like the following
+```C#
+using System.IO;
+using Word = Microsoft.Office.Interop.Word;
+
+String fileName = Path.GetTempFileName();
+File.WriteAllBytes(fileName, Properties.Resources.Customer_Pick_Up_Carrier_Check_In_Sheet_Template);
+object temp_file_name = (object)fileName;
+Word.Application winword = new Word.Application();
+winword.Visible = false;
+object missing = System.Reflection.Missing.Value;
+Word.Document document = winword.Documents.Add(ref temp_file_name, ref missing, ref missing, ref missing);
+```
+The process to put your template file into the Solution Resources is in the following:
+```TEXT
+https://stackoverflow.com/questions/15925801/visual-studio-c-sharp-how-to-add-a-doc-file-as-a-resource
+https://stackoverflow.com/questions/33164270/how-to-open-embedded-resource-word-document
+
+Right-click your project and select the "Properties" option.
+Then click the "Resources" tab and it will show the dialog for you to add resources in the design time.
+The default page is for add String resources, you can select the combobox in the top-right to select the "file" item.
+Then click the "Add Resource" button to select the doc file and click OK.
+At last, the doc file will show in the blank area. It means that you have added it successfully.
+```
+
 Reference 1: https://vivekcek.wordpress.com/tag/interop-word-template/ </br>
 Reference 2: https://stackoverflow.com/questions/3684103/how-to-add-office-graph-in-word </br>
 Reference 3: https://stackoverflow.com/questions/32105775/how-to-add-an-image-at-a-specific-location-in-msword-using-c (Place inlineshape at specific location) </br>
