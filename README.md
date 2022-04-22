@@ -10,7 +10,7 @@ I spend so much time on researching this topic online, but only to find some fra
 4. [Create C# Project](https://github.com/Dungyichao/Auto_Generate_WordDoc#4-create-c-project)
     * 4.1 [SQL](https://github.com/Dungyichao/Auto_Generate_WordDoc#41-sql)
     * 4.2 [Generate Word Document and Excel Chart](https://github.com/Dungyichao/Auto_Generate_WordDoc#42-generate-word-document-and-excel-chart)
-    * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)+
+    * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)
 5. Interact with Web Page Data
 
 # 1. What is the Goal <br />
