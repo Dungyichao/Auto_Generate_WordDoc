@@ -592,7 +592,7 @@ In order to achieve your goal, you need to find out what the URL pattern is, so 
 4. Now, monitor URL, click into URL and see if there is any data.
 
 <p align="center">
-<img src="/image/network.jpg" height="90%" width="90%"> 
+<img src="/image/network.jpg" height="100%" width="100%"> 
 </p> 
 
 ### 5.1 Code
