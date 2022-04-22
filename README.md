@@ -11,7 +11,8 @@ I spend so much time on researching this topic online, but only to find some fra
     * 4.1 [SQL](https://github.com/Dungyichao/Auto_Generate_WordDoc#41-sql)
     * 4.2 [Generate Word Document and Excel Chart](https://github.com/Dungyichao/Auto_Generate_WordDoc#42-generate-word-document-and-excel-chart)
     * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)
-5. Interact with Web Page Data
+5. [Interact with Web Page Data](https://github.com/Dungyichao/Auto_Generate_WordDoc/blob/main/README.md#5-interact-with-web-page-data)
+    * 5.1 [Code](https://github.com/Dungyichao/Auto_Generate_WordDoc/blob/main/README.md#51-code)
 
 # 1. What is the Goal <br />
 Let's take a look on what kind of document (.docx or .pdf) we are going to generate using C# Console Application.<br />
