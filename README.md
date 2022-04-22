@@ -579,11 +579,102 @@ If you want to retrive some data from web browser, but the vendor didn't give yo
 
 https://user-images.githubusercontent.com/25232370/164585397-ca74b5bc-132b-4d63-a952-858b16f9289b.mp4
 
-The action in above video are performed by program itself (except the moving mouse part). What it do Is the follwing
+The action in above video are performed by program itself (except the moving mouse part). What the program will do Is the follwing
 1. Open chrome with URL: https://172.16.218.199/login
 2. input password and press enter itself (the username was input before)
 3. You will now see the overview page
 4. User can now take the synthetic URL into the “Open URL” (in the above video, we put a fixed URL in the program, so the program will automatically open the equipment URL), the program will “Ctrl+A” which select all the data, the program will “ctrl+C” which will copy the data. The program will then read the clipboard data and put into the textbox which our program can then process the data.
 
+Code is in the following
+```C#
+using System;
+using System.Diagnostics;//Process
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading; //Sleep
+
+namespace BayView
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", @"https://172.16.218.199/login");
+            timer_pwd.Enabled = true;
+        }
+
+        private void timer_pwd_Tick(object sender, EventArgs e)
+        {
+            SendKeys.Send("somePassWordStringandDigit");
+            timer_login.Enabled = true;
+            timer_pwd.Enabled = false;
+        }
+
+        private void timer_login_Tick(object sender, EventArgs e)
+        {
+            SendKeys.Send("{ENTER}");
+            timer_auto_open_url.Enabled = true;
+            timer_login.Enabled = false;            
+        }
+
+        private void button_URL_Click(object sender, EventArgs e)
+        {
+            string bay_view_url = textBox1.Text.Trim().ToString();
+            open_chrome_URL(bay_view_url);
+            timer_select_all.Enabled = true;
+        }
+
+        public void open_chrome_URL(string url_str)
+        {
+            Process.Start("chrome.exe", url_str);
+        }
+
+        private void timer_select_all_Tick(object sender, EventArgs e)
+        {
+            SendKeys.Send("^(a)");
+            Thread.Sleep(1000);
+            SendKeys.Send("^(c)");
+            //if (Clipboard.ContainsText())
+            //{
+            //    Console.WriteLine(Clipboard.GetText());
+            //}
+            timer_paste_clipboard.Enabled = true;
+            timer_select_all.Enabled = false;
+        }
+
+        private void timer_paste_clipboard_Tick(object sender, EventArgs e)
+        {
+            textBox_result.Text = "";
+            textBox_result.Text = Clipboard.GetText().ToString();
+            timer_closePage.Enabled = true;
+            timer_paste_clipboard.Enabled = false;
+        }
+
+        private void timer_closePage_Tick(object sender, EventArgs e)
+        {
+            SendKeys.Send("^(w)");
+            timer_closePage.Enabled = false;
+        }
+
+        private void timer_auto_open_url_Tick(object sender, EventArgs e)
+        {
+            open_chrome_URL(@"https://172.16.218.199/webChart/query/data/history$3a$2f$2fEquipment$2420ID$2fN1_TESLAGOOGLEC0001$2f$2fNANYA_SC0001$2fN1_TESLAGOOGLEC0001_BO_POS$3fstart$3d2022$2d04$2d21T13$3a19$3a30$2e015$2d04$3a00");
+            timer_select_all.Enabled = true;
+            timer_auto_open_url.Enabled = false;
+        }
+    }
+}
+
+```
 
 
