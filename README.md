@@ -579,6 +579,11 @@ If you want to retrive some data from web browser, but the vendor didn't give yo
 
 https://user-images.githubusercontent.com/25232370/164585397-ca74b5bc-132b-4d63-a952-858b16f9289b.mp4
 
+The action in above video are performed by program itself (except the moving mouse part). What it do Is the follwing
+1. Open chrome with URL: https://172.16.218.199/login
+2. input password and press enter itself (the username was input before)
+3. You will now see the overview page
+4. User can now take the synthetic URL into the “Open URL” (in the above video, we put a fixed URL in the program, so the program will automatically open the equipment URL), the program will “Ctrl+A” which select all the data, the program will “ctrl+C” which will copy the data. The program will then read the clipboard data and put into the textbox which our program can then process the data.
 
 
 
