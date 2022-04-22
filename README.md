@@ -10,7 +10,8 @@ I spend so much time on researching this topic online, but only to find some fra
 4. [Create C# Project](https://github.com/Dungyichao/Auto_Generate_WordDoc#4-create-c-project)
     * 4.1 [SQL](https://github.com/Dungyichao/Auto_Generate_WordDoc#41-sql)
     * 4.2 [Generate Word Document and Excel Chart](https://github.com/Dungyichao/Auto_Generate_WordDoc#42-generate-word-document-and-excel-chart)
-    * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)
+    * 4.3 [Email Out the Report](https://github.com/Dungyichao/Auto_Generate_WordDoc#43-email-out-the-report)+
+5. Interact with Web Page Data
 
 # 1. What is the Goal <br />
 Let's take a look on what kind of document (.docx or .pdf) we are going to generate using C# Console Application.<br />
@@ -572,4 +573,12 @@ public Dictionary<string, string> ISP = new Dictionary<string, string>()
             {"Virgin", "@vmobl.com" }
         };
 ```
+
+# 5. Interact with Web Page Data
+If you want to retrive some data from web browser, but the vendor didn't give you any library to interact with the data, you can follow the following steps to retrieve data.
+
+https://user-images.githubusercontent.com/25232370/164585397-ca74b5bc-132b-4d63-a952-858b16f9289b.mp4
+
+
+
 
