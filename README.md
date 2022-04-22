@@ -585,6 +585,25 @@ The action in above video are performed by program itself (except the moving mou
 3. You will now see the overview page
 4. User can now take the synthetic URL into the “Open URL” (in the above video, we put a fixed URL in the program, so the program will automatically open the equipment URL), the program will “Ctrl+A” which select all the data, the program will “ctrl+C” which will copy the data. The program will then read the clipboard data and put into the textbox which our program can then process the data.
 
+In order to achieve your goal, you need to find out what the URL pattern is, so that you can synthesize the URL yourself. The following is the steps to look into how the vendor's web page receiving data with different URL.
+1. Manually go to the website, login into it if necessary.
+2. Right click on the web page, click "inspect"
+3. Click on "Network" tab.
+4. Now, monitor URL, click into URL and see if there is any data.
+
+<p align="center">
+<img src="/image/Network.JPG" height="50%" width="50%"> 
+</p> 
+
+### 5.1 Code
+Let's look at the form design
+<p align="center">
+<img src="/image/form_design.JPG" height="50%" width="50%"> 
+</p> 
+
+You can decide the timer based on the ethernet speed, or how fast your PC can open browser program. Login timer roughly 5000ms, the other can be 1000~2000ms
+
+
 Code is in the following
 ```C#
 using System;
