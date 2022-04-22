@@ -598,7 +598,7 @@ In order to achieve your goal, you need to find out what the URL pattern is, so 
 ### 5.1 Code
 Let's look at the form design
 <p align="center">
-<img src="/image/form_design.JPG" height="50%" width="50%"> 
+<img src="/image/form_design.jpg" height="70%" width="70%"> 
 </p> 
 
 You can decide the timer based on the ethernet speed, or how fast your PC can open browser program. Login timer roughly 5000ms, the other can be 1000~2000ms
