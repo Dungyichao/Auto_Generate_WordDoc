@@ -578,7 +578,7 @@ public Dictionary<string, string> ISP = new Dictionary<string, string>()
 # 5. Interact with Web Page Data
 If you want to retrive some data from web browser, but the vendor didn't give you any library to interact with the data, you can follow the following steps to retrieve data. You just need to make sure you can find out how your vendor's web page dealing with URL to retrieve data.
 
-https://user-images.githubusercontent.com/25232370/164585397-ca74b5bc-132b-4d63-a952-858b16f9289b.mp4
+https://user-images.githubusercontent.com/25232370/164736024-ac35a78a-2645-46e3-bd32-29b4d2300389.mp4
 
 The action in above video are performed by program itself (except the moving mouse part). What the program will do Is the follwing
 1. Open chrome with URL: https://172.16.218.199/login
